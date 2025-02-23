@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lớp 12A7</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8E6FE4;
+            --secondary-color: #F0EEFF;
+            --accent-color: #6A4ED3;
+            --text-color: #2D2A47;
+            --glass-bg: rgba(255, 255, 255, 0.25);
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--secondary-color), #E6E0FF);
+            color: var(--text-color);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            animation: fadeIn 1s ease-in;
+            position: relative;
+            z-index: 1;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: var(--accent-color);
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-menu {
+            padding: 25px;
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .nav-menu a {
+            padding: 15px 30px;
+            color: var(--accent-color);
+            font-size: 1.1em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.6),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .nav-menu a:hover {
+            transform: translateY(-3px);
+            background: var(--accent-color);
+            color: white;
+            box-shadow: 0 8px 25px rgba(106, 78, 211, 0.3);
+        }
+
+        .nav-menu a:hover::before {
+            left: 100%;
+        }
+
+        .nav-menu a.active {
+            background: var(--accent-color);
+            color: white;
+            box-shadow: 0 8px 25px rgba(106, 78, 211, 0.3);
+        }
+
+        /* Thêm animation khi hover */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .nav-menu a:active {
+            transform: scale(0.95);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .nav-menu a {
+                padding: 12px 20px;
+                font-size: 1em;
+                width: calc(50% - 20px);
+                text-align: center;
+            }
+        }
+
+        .content-section {
+            padding: 60px 40px;
+            margin: 40px auto;
+            max-width: 1100px;
+        }
+
+        .content-section h2 {
+            font-size: 2em;
+            line-height: 1.5;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+        }
+
+        footer {
+            margin-top: 80px;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: var (--accent-color);
+            font-size: 1.1em;
+            margin: 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .nav-menu {
+                padding: 15px;
+            }
+
+            .nav-menu a {
+                padding: 12px 20px;
+                font-size: 1em;
+            }
+
+            .content-section {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Thêm hiệu ứng hover cho các thẻ */
+        .glass-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+
+        /* Animation cho các phần tử khi load trang */
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .content-section,
+        .nav-menu,
+        footer {
+            animation: slideUp 0.8s ease forwards;
+        }
+        canvas {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 20px;
+        }
+
+        .contact-info, .contact-form {
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-info h3, .contact-form h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .info-item {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .info-item i {
+            font-size: 24px;
+            color: var(--accent-color);
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(106, 78, 211, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--accent-color);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Thông tin lớp học</h1>
+        <nav class="nav-menu glass-card">
+            <a href="index.html">Trang chủ</a>
+            <a href="review.html">Giới thiệu</a>
+            <a href="member.html">Thành viên</a>
+            <a href="hoatdong.html">Hoạt động</a>
+            <a href="anhlop.html">Ảnh lớp</a>
+            <a href="lienhe.html" class="active">Liên hệ</a>
+        </nav>
+
+        <div class="content-section glass-card">
+            <h2>Liên Hệ Với Chúng Tôi</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Thông Tin Liên Hệ</h3>
+                    <div class="info-item">
+                        <i class="fas fa-school"></i>
+                        <div>
+                            <h4>Trường THPT Chu Văn An</h4>
+                            <p>Khóm Mươn Nhà Máy, Phường An Thạnh, Tp Hồng Ngự, Đồng Tháp</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Điện thoại</h4>
+                            <p>02773837308 </p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>thpt.chuvanan.dongthap@moet.edu.vn</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Giờ làm việc</h4>
+                            <p>Thứ 2 - Thứ 7: 7:00 - 17:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Gửi Tin Nhắn</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Họ và tên</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Chủ đề</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Nội dung</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Gửi tin nhắn</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <footer class="glass-card">
+            <p>© 2025 Lớp 12A7 - THPT Chu Văn An</p>
+            <p>Website được thiết kế bởi Khả Nhi lớp 12A7</p>
+        </footer>
+    </div>
+    <canvas id="canvas"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Thiết lập kích thước canvas theo cửa sổ
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Tải ảnh hoa (đường dẫn cần thay đổi theo file của bạn)
+        const flowerImg = new Image();
+        flowerImg.src = "flower.png";
+
+        const flowers = [];
+        const numberOfFlowers = 50; // Số lượng hoa trên màn hình
+
+        // Khởi tạo mảng hoa với các thuộc tính ngẫu nhiên
+        for (let i = 0; i < numberOfFlowers; i++) {
+            flowers.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                speed: Math.random() * 2 + 1,
+                size: Math.random() * 20 + 20,
+                opacity: Math.random() * 0.5 + 0.5,
+                angle: Math.random() * Math.PI * 2
+            });
+        }
+
+        // Hàm vẽ hoa
+        function drawFlowers() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            flowers.forEach(flower => {
+                ctx.save();
+                ctx.globalAlpha = flower.opacity;
+                // Dịch chuyển và xoay theo góc của hoa
+                ctx.translate(flower.x, flower.y);
+                ctx.rotate(flower.angle);
+                ctx.drawImage(
+                    flowerImg,
+                    -flower.size / 2,
+                    -flower.size / 2,
+                    flower.size,
+                    flower.size
+                );
+                ctx.restore();
+
+                // Cập nhật vị trí hoa
+                flower.y += flower.speed;
+                // Tạo chuyển động ngang nhẹ bằng hàm sin (giả lập gió nhẹ)
+                flower.x += Math.sin(flower.y / 50);
+                // Cập nhật góc quay (tùy chọn)
+                flower.angle += 0.01;
+
+                // Nếu hoa rơi ra ngoài dưới màn hình, reset vị trí ở đầu
+                if (flower.y > canvas.height) {
+                    flower.y = -flower.size;
+                    flower.x = Math.random() * canvas.width;
+                }
+            });
+
+            requestAnimationFrame(drawFlowers);
+        }
+
+        // Chạy hiệu ứng sau khi ảnh hoa đã được tải xong
+        flowerImg.onload = drawFlowers;
+
+        // Cập nhật kích thước canvas khi thay đổi kích thước cửa sổ
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+
+</body>
+
+</html>
