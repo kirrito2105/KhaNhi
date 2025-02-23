@@ -7,7 +7,9 @@
     <title>Lớp 12A7</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary-color: #8E6FE4;
@@ -86,12 +88,10 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(
-                120deg,
-                transparent,
-                rgba(255, 255, 255, 0.6),
-                transparent
-            );
+            background: linear-gradient(120deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.6),
+                    transparent);
             transition: 0.5s;
         }
 
@@ -114,9 +114,17 @@
 
         /* Thêm animation khi hover */
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         .nav-menu a:active {
@@ -210,6 +218,7 @@
         footer {
             animation: slideUp 0.8s ease forwards;
         }
+
         canvas {
             pointer-events: none;
             position: fixed;
@@ -218,6 +227,7 @@
             width: 100%;
             height: 100%;
         }
+
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -225,13 +235,15 @@
             padding: 20px;
         }
 
-        .contact-info, .contact-form {
+        .contact-info,
+        .contact-form {
             padding: 30px;
             border-radius: 15px;
             background: rgba(255, 255, 255, 0.2);
         }
 
-        .contact-info h3, .contact-form h3 {
+        .contact-info h3,
+        .contact-form h3 {
             color: var(--accent-color);
             margin-bottom: 20px;
             font-size: 1.8em;
@@ -301,6 +313,15 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        a.facebook-link {
+            color: black;
+            text-decoration: none;
+        }
+
+        a.facebook-link:hover {
+            text-decoration: underline;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -348,6 +369,14 @@
                         <div>
                             <h4>Giờ làm việc</h4>
                             <p>Thứ 2 - Thứ 7: 7:00 - 17:00</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-facebook"></i>
+                        <div>
+                            <h4>Facebook</h4>
+                            <p><a href="https://www.facebook.com/profile.php?id=100066442124149" target="_blank"
+                                    class="facebook-link"> A7 không bao giờ gãy</a></p>
                         </div>
                     </div>
                 </div>
